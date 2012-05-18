@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         id="application"
+         point="org.eclipse.core.runtime.applications">
+      <application>
+         <run
+               class="com.datagardens.nq.sdb.server.ServerManager">
+         </run>
+      </application>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            name="RCP Perspective"
+            class="com.datagardens.nq.sdb.server.Perspective"
+            id="com.datagardens.nq.sdb.server.perspective">
+      </perspective>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            class="com.datagardens.nq.sdb.server.ControlView"
+            id="com.datagardens.nq.sdb.server.views.control"
+            name="Controls"
+            restorable="true">
+      </view>
+   </extension>
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="com.datagardens.nq.sdb.server.application"
+            name="Server Product">
+         <property
+               name="appName"
+               value="Server Product">
+         </property>
+      </product>
+   </extension>
+
+</plugin>

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         id="application"
+         point="org.eclipse.core.runtime.applications">
+      <application>
+         <run
+               class="com.datagardens.nq.sdb.client.Client">
+         </run>
+      </application>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            name="RCP Perspective"
+            class="com.datagardens.nq.sdb.client.Perspective"
+            id="com.datagardens.nq.sdb.client.perspective">
+      </perspective>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            description="Norquest commands"
+            id="com.datagardens.nq.sdb.client.commands"
+            name="Norquest">
+      </category>
+      <command
+            categoryId="com.datagardens.nq.sdb.client.commands"
+            description="Opens the specified job"
+            id="com.datagardens.nq.sdb.client.commands.production.openJob"
+            name="Open Job">
+      </command>
+      <command
+            categoryId="com.datagardens.nq.sdb.client.commands"
+            description="Track By Serial Number"
+            id="com.datagardens.nq.sdb.client.commands.tracking.bySerialNumber"
+            name="Track By Serial Number">
+      </command>
+      <command
+            categoryId="com.datagardens.nq.sdb.client.commands"
+            id="com.datagardens.nq.sdb.client.commands.reporting.efficiency"
+            name="Report Efficiency">
+      </command>
+      <command
+            categoryId="com.datagardens.nq.sdb.client.commands"
+            id="com.datagardens.nq.sdb.client.commands.administration.userManagement"
+            name="User Management">
+      </command>
+      <command
+            categoryId="com.datagardens.nq.sdb.client.commands"
+            id="com.datagardens.nq.sdb.client.commands.production.printJob"
+            name="Print Job">
+      </command>
+      <command
+            categoryId="com.datagardens.nq.sdb.client.commands"
+            id="com.datagardens.nq.sdb.client.commands.production.dataEntry"
+            name="Data Entry">
+      </command>
+      <command
+            categoryId="com.datagardens.nq.sdb.client.commands"
+            id="com.datagardens.nq.sdb.client.commands.production.analysis"
+            name="Analysis">
+      </command>
+      <command
+            categoryId="com.datagardens.nq.sdb.client.commands"
+            id="com.datagardens.nq.sdb.client.commands.production.closeJob"
+            name="Close Job">
+      </command>
+      <command
+            categoryId="com.datagardens.nq.sdb.client.commands"
+            id="com.datagardens.nq.sdb.client.commands.reporting.ior"
+            name="IOR Report">
+      </command>
+      <command
+            categoryId="com.datagardens.nq.sdb.client.commands"
+            id="com.datagardens.nq.sdb.client.commands.production.saveSawSheet"
+            name="Save Saw Sheet">
+      </command>
+      <command
+            categoryId="com.datagardens.nq.sdb.client.commands"
+            id="com.datagardens.nq.sdb.client.commands.administration.addUser"
+            name="Add User">
+      </command>
+      <command
+            categoryId="com.datagardens.nq.sdb.client.commands"
+            id="com.datagardens.nq.sdb.client.commands.administration.deleteUser"
+            name="Delete User">
+      </command>
+      <command
+            categoryId="com.datagardens.nq.sdb.client.commands"
+            id="com.datagardens.nq.sdb.client.commands.administration.editUser"
+            name="Edit User">
+      </command>
+      <command
+            categoryId="com.datagardens.nq.sdb.client.commands"
+            id="com.datagardens.nq.sdb.client.commands.production.removeShift"
+            name="Remove Shift">
+      </command>
+      <command
+            categoryId="com.datagardens.nq.sdb.client.commands"
+            id="com.datagardens.nq.sdb.client.commands.production.addShift"
+            name="Add Shift">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="com.datagardens.nq.sdb.client.commands.production.openJob"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="M1+O">
+      </key>
+      <key
+            commandId="org.eclipse.ui.file.exit"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="M1+Q">
+      </key>
+   </extension>
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="com.datagardens.nq.sdb.client.application"
+            name="SDB Product">
+         <property
+               name="appName"
+               value="SDB Product">
+         </property>
+         <property
+               name="windowImages"
+               value="images/icon_16x16.png,images/icon_32x32.png">
+         </property>
+      </product>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            class="com.datagardens.nq.sdb.client.views.NavigationView"
+            id="com.datagardens.nq.sdb.client.views.navigationView"
+            name="Navigation"
+            restorable="true">
+      </view>
+      <view
+            class="com.datagardens.nq.sdb.client.views.MainConsoleView"
+            id="com.datagardens.nq.sdb.client.views.mainConsoleView"
+            name="Main"
+            restorable="true">
+      </view>
+      <view
+            class="com.datagardens.nq.sdb.client.views.TreeNavigationView"
+            id="com.datagardens.nq.sdb.client.views.TreeNaviogationView"
+            name="Tree Navigation"
+            restorable="true">
+      </view>
+      <view
+            class="com.datagardens.nq.sdb.client.views.EditorView"
+            id="com.datagardens.nq.sdb.client.views.editorView"
+            name="Editor"
+            restorable="true">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.splashHandlers">
+      <splashHandler
+            class="com.datagardens.nq.sdb.client.splashHandlers.InteractiveSplashHandler"
+            id="com.datagardens.nq.sdb.client.splashHandlers.interactive">
+      </splashHandler>
+      <splashHandlerProductBinding
+            productId="com.datagardens.nq.sdb.client.product"
+            splashId="com.datagardens.nq.sdb.client.splashHandlers.interactive">
+      </splashHandlerProductBinding>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="com.datagardens.nq.sdb.client.editors.JobEditor"
+            default="false"
+            id="com.datagardens.nq.sdb.client.editors.jobEditor"
+            name="JobEditor">
+      </editor>
+   </extension>
+
+</plugin>
